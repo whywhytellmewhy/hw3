@@ -21,7 +21,7 @@ gesture_thread這個thread，並且同時讓myled2閃爍，以讓使用者得知
 函式中會有printf等等的指令出現，而這個eventqueue則會呼叫take_reference_a 這個函式(其中的"a"表示加速度)，在這個函式中，會將此時的加速度感應器所測量出的加速度
 值，依照x、y、z軸方向的分量分別儲存在reference_XYZ的陣列中，此時將myled3設回0，並在螢幕上print出"Take_reference_a_success!!"的字樣，表示
 已成功收集到參考加速度值。接著就可以開始測量每個時間點所對應到的加速度值以及由此計算出傾斜角度了！因此程式呼叫tilt_thread_any_point的韓式
-，這個函式的運作會先連上跟PC端之間的Wifi網路，
+，這個函式運作時會先連上跟PC端之間的Wifi網路，以利即時輸送(transmit)超過標準角度值的數據到PC端，
 
 # Q2: What are the results？
 A2:
