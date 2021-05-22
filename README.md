@@ -25,6 +25,7 @@ gesture_thread這個thread，並且同時讓myled2閃爍，以讓使用者得知
 
 # Q2: What are the results？
 A2:在python的執行螢幕上會以 
+ 
 \---------------- 
  
 (資料、數據內容) 
