@@ -22,7 +22,7 @@ gesture_thread這個thread，並且同時讓myled2閃爍，以讓使用者得知
 值，依照x、y、z軸方向的分量分別儲存在reference_XYZ的陣列中，此時將myled3設回0，並在螢幕上print出"Take_reference_a_success!!"的字樣，表示
 已成功收集到參考加速度值。接著就可以開始測量每個時間點所對應到的加速度值以及由此計算出傾斜角度了！因此程式呼叫tilt_thread_any_point的函式
 ，這個函式運作時會先連上跟PC端之間的Wifi網路，以利即時輸送(transmit)超過標準角度值的數據到PC端(python接收)，接著就會開始每秒測量加速度值，並即時儲存至
-now_a_XYZ的陣列中，在第一次測量前，會先設定名為first_tilt_send的flag值為1，並以publish_message送出一個訊息，讓python知道要開始進行tilt mode了，接著再將first_tilt_send值設回0，就可以開始以設定格式傳送數據了。然而並不是所有測量到的數據都會經由Wi-fi傳送給PC端，而是只有超過角度標準值(在gesture mode中設定好的)的數據才會傳送，而傳送的數據依序為: 5 digit的x軸方向加速度值、5 digit的y軸方向加速度值、5 digit的z軸方向加速度值、傾斜角度(利用arccos事先在板子上算好了)。而在uLCD上，則是每次測量都呈現出上方的四個數據之外，當超過角度標準值時，還會顯示出"Exceed 'confirmed_degree' degree!"的字樣，其中'confirmed_degree'是顯示出角度標準值。當python程式接收到10筆數據(也就是說，從開始測量起算，已經恰有10筆數據超過角度標準值了
+now_a_XYZ的陣列中，在第一次測量前，會先設定名為first_tilt_send的flag值為1，並以publish_message送出一個訊息，讓python知道要開始進行tilt mode了，接著再將first_tilt_send值設回0，就可以開始以設定格式傳送數據了。然而並不是所有測量到的數據都會經由Wi-fi傳送給PC端，而是只有超過角度標準值(在gesture mode中設定好的)的數據才會傳送，而傳送的數據依序為: 5 digit的x軸方向加速度值、5 digit的y軸方向加速度值、5 digit的z軸方向加速度值、傾斜角度(利用arccos事先在板子上算好了)。而在uLCD上，則是每次測量都呈現出上方的四個數據之外，當超過角度標準值時，還會顯示出"Exceed 'confirmed_degree' degree!"的字樣，其中'confirmed_degree'是顯示出角度標準值。當python程式接收到10筆數據(也就是說，從開始測量起算，已經恰有10筆數據超過角度標準值了)時，它會透過/STOPTILT/run的指令，讓板子停止執行tilt的函式，而回到RPC mode，而python程式則會在10秒(保險起見先休息10秒讓其他程式跑完)後print出最終報告(10筆數據)。
 
 # Q2: What are the results？
 A2:在python的執行螢幕上會以  
