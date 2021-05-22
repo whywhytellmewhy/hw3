@@ -3,7 +3,7 @@ Created on 110.5.7
 
 # Q1: How to setup and run your program？
 A1: 
-This homework is so difficult that I spent almost a whole weekend to finish it before exam 2 was around the corner. There are two main functions in the program: 
+This homework is so difficult that I spent almost a whole weekend to finish it before exam 2 was around the corner. There are two main functions in the program:  
 1. gesture mode: Use machine learning in lab8 to identify different gestures (to differentiate them) to make a choice between different angles. 這些角度會
 在之後的tilt mode中當作判斷是否超限的標準。我利用lab8中的2個範例手勢(ring及slope)，再加上當時我訓練機器得到的 "heart" 手勢，共三個手勢，
 分別對應到傾斜角25度、50度、75度的標準角度。當使用者在螢幕(screen)上打上/GESTURE/run的RPC指令(command)後，程式呼叫gesture函式，這個函式會一方面呼叫
@@ -29,5 +29,5 @@ A2:在python的執行螢幕上會以
 (資料、數據內容)  
 \----------------  
 的方式區隔出兩個結果(其餘部分為log訊息)：  
-1.確認的角度標準值  
-2.超過角度標準值的10筆傾斜(tilt)數據(數據內含超過的數據筆數值、x軸方向加速度測量值、y軸方向加速度測量值、z軸方向加速度測量值、計算出的傾斜角度)  
+1.確認的角度標準值(此為gesture mode的最後結果)  
+2.超過角度標準值的10筆傾斜(tilt)數據(數據內含超過的數據筆數值、x軸方向加速度測量值、y軸方向加速度測量值、z軸方向加速度測量值、計算出的傾斜角度)(此為tilt mode的最後結果)  
